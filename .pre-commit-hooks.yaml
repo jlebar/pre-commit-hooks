@@ -1,6 +1,13 @@
 -   id: bazel-buildifier
-    name: 'bazel buildifier'
-    description: "Runs `buildifier`, requires buildifier binary"
+    name: bazel buildifier
+    description: Runs `buildifier`, requires buildifier binary
     entry: buildifier
     files: 'BUILD.bazel|BUILD|WORKSPACE'
-    language: 'system'
+    language: system
+
+-   id: do-not-submit
+    name: DO NOT SUBMIT
+    description: Forbids the string "DO NOT SUBMIT".
+    entry: check_do_not_submit.py
+    language: script
+    files: '.*'
