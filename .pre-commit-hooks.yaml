@@ -2,7 +2,7 @@
     name: bazel buildifier
     description: Runs `buildifier`, requires buildifier binary
     entry: buildifier
-    files: '(^(BUILD\.bazel|BUILD)|/\2|\.BUILD)$' 
+    files: '(^(|.*/)(BUILD\.bazel|BUILD)|\.BUILD)$' 
     language: system
 
 -   id: do-not-submit
