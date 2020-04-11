@@ -2,7 +2,7 @@
     name: bazel buildifier
     description: Runs `buildifier`, requires buildifier binary
     entry: buildifier
-    files: 'BUILD.bazel|BUILD|WORKSPACE'
+    files: '^(.*/)?(BUILD\.bazel|BUILD)$|\.BUILD$' 
     language: system
 
 -   id: do-not-submit
@@ -11,3 +11,4 @@
     entry: check_do_not_submit.py
     language: script
     files: '.*'
+
