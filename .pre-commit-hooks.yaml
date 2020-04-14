@@ -12,3 +12,12 @@
     language: script
     files: '.*'
 
+-   id: clang-format
+    name: clang-format
+    entry: clang_format.py
+    language: script
+
+    # Fun fact, clang-format can format more than just C and C++!  By default
+    # we only run it on C/C++, but you can override this in your pre-commit
+    # config.
+    types: [c, c++]
