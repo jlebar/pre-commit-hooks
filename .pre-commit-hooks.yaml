@@ -17,7 +17,16 @@
     entry: clang_format.py
     language: script
 
-    # Fun fact, clang-format can format more than just C and C++!  By default
-    # we only run it on C/C++, but you can override this in your pre-commit
-    # config.
-    types: [c, c++]
+    # git-clang-format does not take kindly to being run in parallel; it writes
+    # to a speicfic file in .git.
+    #
+    # TODO: Can we fix git-clang-format so it's parallel-friendly?
+    require_serial: true
+
+    # Fun fact, clang-format can format more than just C and C++!
+    #
+    # Less-fun fact, "types: [c, c++]" means "files that are C *and* C++", i.e.
+    # ".h" files.  If you want to clang-format your C and C++ code, AFAICT
+    # you'll need separate rules.  Or I guess you can use a "files:" regexp.
+    #
+    # See README.md for usage examples.
