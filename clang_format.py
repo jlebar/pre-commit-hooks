@@ -40,7 +40,7 @@ def download_clang_format(sha: str, dest: Path):
         f"https://commondatastorage.googleapis.com/chromium-clang-format/{sha}"
     )
     print("Downloading clang-format (~2mb)...")
-    with tempfile.TemporaryDirectory() as tempdir_name:
+    with tempfile.TemporaryDirectory(dir=dest.parent) as tempdir_name:
         tempdir = Path(tempdir_name)
         with urllib.request.urlopen(download_path) as download_file:
             with tempdir.joinpath("clang-format").open("wb") as outfile:
