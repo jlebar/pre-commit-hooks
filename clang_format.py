@@ -108,7 +108,7 @@ def main():
     git_cf_path = os.path.join(this_dir, "git-clang-format")
     print('Formatting ' + ' '.join(sys.argv[1:]))
     subprocess.run(
-        [git_cf_path, "-f", "--binary", str(clang_format_path()), "--"] + sys.argv[1:]
+        [python, git_cf_path, "-f", "--binary", str(clang_format_path()), "--"] + sys.argv[1:]
     )
 
 
