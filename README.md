@@ -4,7 +4,7 @@ In your `.pre-commit-hooks.yaml` file:
 
 ```
 repos:
--   repo: https://github.com/CamusEnergy/pre-commit-hooks.git
+-   repo: https://github.com/jlebar/pre-commit-hooks.git
     hooks:
       -   id: do-not-submit
       -   id: bazel-buildifier
