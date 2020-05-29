@@ -106,7 +106,7 @@ Learn more: https://github.com/jlebar/pre-commit-hooks
 def main():
     this_dir = os.path.dirname(__file__)
     git_cf_path = os.path.join(this_dir, "git-clang-format")
-    print('Formatting ' + ' '.join(sys.argv[1:]))
+    print("Formatting " + " ".join(sys.argv[1:]))
     subprocess.run(
         [git_cf_path, "-f", "--binary", str(clang_format_path()), "--"] + sys.argv[1:]
     )
