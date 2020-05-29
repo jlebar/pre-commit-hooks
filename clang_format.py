@@ -40,7 +40,20 @@ def download_clang_format(sha: str, dest: Path):
         f"https://commondatastorage.googleapis.com/chromium-clang-format/{sha}"
     )
     print("Downloading clang-format (~2mb)...")
-    with tempfile.TemporaryDirectory() as tempdir_name:
+
+    # We download the file from the web into a temp dir, then atomically rename
+    # it to `dest`.  In order for this to work, the temp dir must be on the
+    # same filesystem as `dest`.
+    #
+    # You might be tempted to use NamedTemporaryFile instead of a
+    # TemporaryDirectory.  The problem is, we want to use delete=True, and
+    # NamedTemporaryFile will raise an exception if it *can't* delete the file,
+    # which is what happens in the success case!
+    #
+    # (The reason we're paranoid about using atomic renames is that pre-commit
+    # can and will invoke this script in parallel, and we want to protect
+    # against the script stepping on its own toes.)
+    with tempfile.TemporaryDirectory(dir=dest.parent) as tempdir_name:
         tempdir = Path(tempdir_name)
         with urllib.request.urlopen(download_path) as download_file:
             with tempdir.joinpath("clang-format").open("wb") as outfile:
