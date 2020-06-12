@@ -12,10 +12,11 @@
     language: script
     files: '.*'
 
--   id: clang-format
-    name: clang-format
+-   id: clang-format-diff
+    name: clang-format-diff
     entry: clang_format.py
     language: script
+    args: ['--diff']
 
     # git-clang-format does not take kindly to being run in parallel; it writes
     # to a speicfic file in .git.
@@ -30,3 +31,10 @@
     # you'll need separate rules.  Or I guess you can use a "files:" regexp.
     #
     # See README.md for usage examples.
+
+-   id: clang-format-whole-file
+    name: clang-format-whole-file
+    entry: clang_format.py
+    language: script
+    args: ['--whole-file']
+    require_serial: false

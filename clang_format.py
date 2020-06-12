@@ -6,7 +6,7 @@ Download the clang-format binary if necessary.
 
 Usage example:
 
-  clang_format.py 10.0.0 foo.cpp bar.h
+  clang_format.py [--diff|--whole-file] 10.0.0 foo.cpp bar.h
 """
 
 import glob
@@ -119,11 +119,26 @@ Learn more: https://github.com/jlebar/pre-commit-hooks
 def main():
     this_dir = os.path.dirname(__file__)
     git_cf_path = os.path.join(this_dir, "git-clang-format")
-    print("Formatting " + " ".join(sys.argv[1:]))
-    subprocess.run(
-        [sys.executable, git_cf_path, "-f", "--binary", str(clang_format_path()), "--",]
-        + sys.argv[1:]
-    )
+
+    if sys.argv[1] == "--diff":
+        print("Formatting changed lines in " + " ".join(sys.argv[2:]))
+        subprocess.run(
+            [
+                sys.executable,
+                git_cf_path,
+                "-f",
+                "--binary",
+                str(clang_format_path()),
+                "--",
+            ]
+            + sys.argv[2:]
+        )
+    elif sys.argv[1] == "--whole-file":
+        print("Formatting all lines in " + " ".join(sys.argv[2:]))
+        subprocess.run([str(clang_format_path()), "-i", "--"] + sys.argv[2:])
+    else:
+        print("Must pass --diff or --whole-file as first argument.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
