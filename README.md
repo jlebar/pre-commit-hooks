@@ -9,41 +9,53 @@ repos:
       -   id: do-not-submit
       -   id: bazel-buildifier
 
-      # Yes, multiple rules are required if you want to format (say) C and C++.
-      # Do not be tempted to combine them as one rule with types: [c, c++]!
-      # That will only match files which are "both" C and C++, i.e. ".h" files.
-      -   id: clang-format-diff
-          name: clang-format C++
-          types: [c++]
-      -   id: clang-format-diff
-          name: clang-format C
-          types: [c]
-      -   id: clang-format-diff
-          name: clang-format Java
-          types: [java]
-      -   id: clang-format-diff
-          name: clang-format JavaScript
-          types: [javascript]
-      -   id: clang-format-diff
-          name: clang-format Objective-C
-          types: [objective-c]
-      -   id: clang-format-diff
-          name: clang-format Protobuf
-          types: [protobuf]
-      -   id: clang-format-diff
-          name: clang-format C#
-          types: [c#]
+      # pre-commit 2.9.0 and newer should be able to use the following
+      # (note: untested).
+      - id: clang-format-diff
+        types_or: [c++, c, java, javascript, objective-c, protobuf, c#]
+```
 
-      # If you're formatting both C and C++ code, perhaps you want don't want to
-      # format every header file twice, as the above incantation will do.  In
-      # that case, you can use something like the following.
-      -   id: clang-format-diff
-          name: clang-format C++
-          types: [c++]
-      -   id: clang-format-diff
-          name: clang-format C
-          types: [c]
-          exclude_types: [c++]
+`types_or` is a pre-commit 2.9.0 feature, so before that you had to do something like the following.
+
+```
+# FOR PRE-COMMIT VERSIONS EARLIER THAN 2.9.0
+#
+# Before pre-commit 2.9.0, multiple rules were required if you want to
+# format (say) C and C++.  Do not be tempted to combine them as one rule
+# with types: [c, c++]!  That will only match files which are "both" C
+# and C++, i.e. ".h" files.
+-   id: clang-format-diff
+    name: clang-format C++
+    types: [c++]
+-   id: clang-format-diff
+    name: clang-format C
+    types: [c]
+-   id: clang-format-diff
+    name: clang-format Java
+    types: [java]
+-   id: clang-format-diff
+    name: clang-format JavaScript
+    types: [javascript]
+-   id: clang-format-diff
+    name: clang-format Objective-C
+    types: [objective-c]
+-   id: clang-format-diff
+    name: clang-format Protobuf
+    types: [protobuf]
+-   id: clang-format-diff
+    name: clang-format C#
+    types: [c#]
+
+# If you're formatting both C and C++ code, perhaps you want don't want to
+# format every header file twice, as the above incantation will do.  In
+# that case, you can use something like the following.
+-   id: clang-format-diff
+    name: clang-format C++
+    types: [c++]
+-   id: clang-format-diff
+    name: clang-format C
+    types: [c]
+    exclude_types: [c++]
 ```
 
 # Notes on clang-format rules
