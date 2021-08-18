@@ -2,12 +2,14 @@
 
 """Checks each file in sys.argv for the string "DO NOT SUBMIT"."""
 
-import sys
+from __future__ import annotations
+
 import os
 import subprocess
+import sys
 
 
-def err(s):
+def err(s: str) -> None:
     print(s, file=sys.stderr)
 
 
@@ -26,6 +28,6 @@ if res.returncode == 0:
     err(res.stdout.decode("utf-8"))
     sys.exit(1)
 elif res.returncode == 2:
-    err(f"Error invoking grep on {fname}:")
+    err(f"Error invoking grep on {', '.join(sys.argv[1:])}:")
     err(res.stderr.decode("utf-8"))
     sys.exit(2)
