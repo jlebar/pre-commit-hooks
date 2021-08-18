@@ -4,9 +4,9 @@
 
 from __future__ import annotations
 
-import sys
 import os
 import subprocess
+import sys
 
 
 def err(s: str) -> None:

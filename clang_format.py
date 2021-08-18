@@ -19,7 +19,6 @@ import subprocess
 import sys
 import tempfile
 import urllib.request
-
 from pathlib import Path
 
 # clang-format sha1s were retrieved at Chromium rev
