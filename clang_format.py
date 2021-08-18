@@ -87,8 +87,8 @@ def check_hash(sha: str, file: Path):
 def clang_format_path() -> Path:
     """Gets the path of the relevant clang-format binary.
 
-  Downloads it if necessary.
-  """
+    Downloads it if necessary.
+    """
     try:
         base_cachedir = Path(os.environ["XDG_CACHE_HOME"])
     except KeyError:
