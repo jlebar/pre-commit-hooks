@@ -35,7 +35,7 @@ CLANG_FORMAT_SHAS = {
 }
 
 
-def download_clang_format(sha: str, dest: Path):
+def download_clang_format(sha: str, dest: Path) -> None:
     download_path = (
         f"https://commondatastorage.googleapis.com/chromium-clang-format/{sha}"
     )
@@ -66,7 +66,7 @@ def download_clang_format(sha: str, dest: Path):
             Path(outfile.name).rename(dest)
 
 
-def check_hash(sha: str, file: Path):
+def check_hash(sha: str, file: Path) -> None:
     d = hashlib.sha1()
     with open(file, "rb") as f:
         while True:
@@ -116,7 +116,7 @@ Learn more: https://github.com/jlebar/pre-commit-hooks
     return clang_format_file
 
 
-def main():
+def main() -> None:
     this_dir = os.path.dirname(__file__)
     git_cf_path = os.path.join(this_dir, "git-clang-format")
 
