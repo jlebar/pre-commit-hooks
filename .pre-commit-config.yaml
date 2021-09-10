@@ -9,10 +9,7 @@ repos:
     hooks:
       - id: mypy
         args: [--strict]
-  - repo: https://github.com/psf/black
-    rev: 21.7b0
-    hooks:
-      - id: black
+        exclude: check_do_not_submit.py
   - repo: https://github.com/PyCQA/isort.git
     rev: 5.9.3
     hooks:
@@ -37,3 +34,21 @@ repos:
     - id: fix-byte-order-marker
     - id: forbid-new-submodules
     - id: trailing-whitespace
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+      - id: python-check-blanket-type-ignore
+      - id: python-use-type-annotations
+      - id: python-check-mock-methods
+      - id: python-check-blanket-noqa
+      - id: python-no-eval
+      - id: rst-backticks
+      - id: rst-directive-colons
+      - id: rst-inline-touching-normal
+      - id: text-unicode-replacement-char
+  - repo: https://gitlab.com/PyCQA/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+        exclude: check_do_not_submit.py
+

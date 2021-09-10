@@ -16,13 +16,14 @@
     name: clang-format-diff
     entry: clang_format.py
     language: script
-    args: ['--diff']
+    args: ['11.0.0','diff']
+    require_serial: true
+
 
     # git-clang-format does not take kindly to being run in parallel; it writes
     # to a speicfic file in .git.
     #
     # TODO: Can we fix git-clang-format so it's parallel-friendly?
-    require_serial: true
 
     # Fun fact, clang-format can format more than just C and C++!
     #
@@ -36,5 +37,103 @@
     name: clang-format-whole-file
     entry: clang_format.py
     language: script
-    args: ['--whole-file']
+    args: ['11.0.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-3.6.0
+    name: clang-format-diff-3.6.0
+    entry: clang_format.py
+    language: script
+    args: ['3.6.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-3.6.0
+    name: clang-format-whole-file-3.6.0
+    entry: clang_format.py
+    language: script
+    args: ['3.6.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-3.7.0
+    name: clang-format-diff-3.7.0
+    entry: clang_format.py
+    language: script
+    args: ['3.7.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-3.8.0
+    name: clang-format-whole-file-3.8.0
+    entry: clang_format.py
+    language: script
+    args: ['3.8.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-3.9.0
+    name: clang-format-diff-3.9.0
+    entry: clang_format.py
+    language: script
+    args: ['3.9.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-3.9.0
+    name: clang-format-whole-file-3.9.0
+    entry: clang_format.py
+    language: script
+    args: ['3.9.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-4.0.0
+    name: clang-format-diff-4.0.0
+    entry: clang_format.py
+    language: script
+    args: ['4.0.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-4.0.0
+    name: clang-format-whole-file-4.0.0
+    entry: clang_format.py
+    language: script
+    args: ['4.0.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-5.0.0
+    name: clang-format-diff-5.0.0
+    entry: clang_format.py
+    language: script
+    args: ['5.0.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-5.0.0
+    name: clang-format-whole-file-5.0.0
+    entry: clang_format.py
+    language: script
+    args: ['5.0.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-8.0.0
+    name: clang-format-diff-8.0.0
+    entry: clang_format.py
+    language: script
+    args: ['8.0.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-8.0.0
+    name: clang-format-whole-file-8.0.0
+    entry: clang_format.py
+    language: script
+    args: ['8.0.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-11.0.0
+    name: clang-format-diff-11.0.0
+    entry: clang_format.py
+    language: script
+    args: ['11.0.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-11.0.0
+    name: clang-format-whole-file-11.0.0
+    entry: clang_format.py
+    language: script
+    args: ['11.0.0','whole-file']
     require_serial: false
