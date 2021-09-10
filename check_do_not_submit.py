@@ -2,6 +2,7 @@
 
 """Checks each file in sys.argv for the string "DO NOT SUBMIT"."""
 
+
 from __future__ import annotations
 
 import os
