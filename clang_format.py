@@ -187,7 +187,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     this_dir = os.path.dirname(__file__)
     git_cf_path = os.path.join(this_dir, "git-clang-format")
     if args.scope == "diff":
-        print("Formatting changed lines in " + " ".join(f"{args.files}"))
+        print("Formatting changed lines in " + " ".join([str(x) for x in args.files]))
         clang_format_run = subprocess.run(
             (
                 sys.executable,
@@ -201,7 +201,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             check=True,
         )
     elif args.scope == "whole-file":
-        print("Formatting all lines in " + " ".join(f"{args.files}"))
+        print("Formatting all lines in " + " ".join([str(x) for x in args.files]))
         clang_format_run = subprocess.run(
             (
                 f"{clang_format_path(get_version_key(args.version))}",
