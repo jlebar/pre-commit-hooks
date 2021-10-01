@@ -30,7 +30,7 @@ except ImportError:
     from typing_extensions import Final
     from typing import Mapping, Optional, Sequence, Tuple
 
-    # clang-format sha1s were retrieved at
+# clang-format sha1s were retrieved at
 #  https://commondatastorage.googleapis.com/chromium-clang-format/
 # The below shas are tested across different os to identify the version.
 # For getting the list a script is written to download all the sha's
