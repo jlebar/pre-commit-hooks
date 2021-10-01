@@ -20,12 +20,14 @@ import sys
 import tempfile
 import urllib.request
 from pathlib import Path
+# Depending on the verion of python running, typing may or may not contain
+# Final.  If importing it from typing doesn't work, we'll import it from
+# typing_extensions (its location for older python versions).
 try:
     from typing import Final, Mapping, Optional, Sequence, Tuple
 except ImportError:
     from typing_extensions import Final
     from typing import Mapping, Optional, Sequence, Tuple
-    
 
 # clang-format sha1s were retrieved at
 #  https://commondatastorage.googleapis.com/chromium-clang-format/
