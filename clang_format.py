@@ -20,7 +20,15 @@ import sys
 import tempfile
 import urllib.request
 from pathlib import Path
-from typing import Final, Mapping, Optional, Sequence, Tuple
+# typing module available for python 3.6 or lower does not include Final.
+# This leads to ImportError. In case this happens, we can try to import
+# Final from typing_extensions, which is a backport of the newest typing
+# functionalities into older python versions (3.5 and 3.6).
+try:
+    from typing import Final, Mapping, Optional, Sequence, Tuple
+except ImportError:
+    from typing_extensions import Final
+    from typing import Mapping, Optional, Sequence, Tuple
 
 # clang-format sha1s were retrieved at
 #  https://commondatastorage.googleapis.com/chromium-clang-format/
