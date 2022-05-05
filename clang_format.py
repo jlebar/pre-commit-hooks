@@ -6,7 +6,7 @@ Download the clang-format binary if necessary.
 
 Usage example:
 
-  clang_format.py 11.0.0 [diff|whole-file] foo.cpp bar.h
+  clang_format.py 15.0.0 [diff|whole-file] foo.cpp bar.h
 """
 
 import argparse
@@ -78,6 +78,11 @@ CLANG_FORMAT_SHAS: Final[Mapping[Tuple[int, int, int], Mapping[str, str],]] = {
         "Linux": "1baf0089e895c989a311b6a38ed94d0e8be4c0a7",
         "Darwin": "62bde1baa7196ad9df969fc1f06b66360b1a927b",
         "Windows": "d4afd4eba27022f5f6d518133aebde57281677c9",
+    },
+    (15, 0, 0): {
+        "Linux": "dd736afb28430c9782750fc0fd5f0ed497399263",
+        "Darwin": "a1b33be85faf2578f3101d7806e443e1c0949498",
+        "Windows": "66882fadbf9e99cc00b8677d8c1e7e8b3cfdf4fe",
     },
 }
 
