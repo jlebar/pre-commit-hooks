@@ -1,3 +1,7 @@
+NOTE: I believe the `clang-format` pre-commit in
+https://github.com/pre-commit/mirrors-clang-format is better than this package
+in all ways.  I recommend using that one unless you have a good reason.
+
 # Example usage
 
 In your `.pre-commit-hooks.yaml` file:
