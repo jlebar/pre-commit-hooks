@@ -1,6 +1,8 @@
 NOTE: I believe the `clang-format` pre-commit in
 https://github.com/pre-commit/mirrors-clang-format is better than this package
-in all ways.  I recommend using that one unless you have a good reason.
+in almost all ways, other than that this package supports a `diff` mode where the whole
+file doesn't have to be formatted.  I recommend using that package unless you really
+want this feature.
 
 # Example usage
 
