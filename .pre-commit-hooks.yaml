@@ -16,7 +16,7 @@
     name: clang-format-diff
     entry: clang_format.py
     language: script
-    args: ['15.0.0','diff']
+    args: ['16.0.0','diff']
     require_serial: true
 
 
@@ -37,7 +37,7 @@
     name: clang-format-whole-file
     entry: clang_format.py
     language: script
-    args: ['15.0.0','whole-file']
+    args: ['16.0.0','whole-file']
     require_serial: false
 
 -   id: clang-format-diff-3.6.0
@@ -150,4 +150,18 @@
     entry: clang_format.py
     language: script
     args: ['15.0.0','whole-file']
+    require_serial: false
+
+-   id: clang-format-diff-16.0.0
+    name: clang-format-diff-16.0.0
+    entry: clang_format.py
+    language: script
+    args: ['16.0.0','diff']
+    require_serial: true
+
+-   id: clang-format-whole-file-16.0.0
+    name: clang-format-whole-file-16.0.0
+    entry: clang_format.py
+    language: script
+    args: ['16.0.0','whole-file']
     require_serial: false

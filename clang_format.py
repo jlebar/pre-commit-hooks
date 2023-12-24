@@ -84,6 +84,11 @@ CLANG_FORMAT_SHAS: Final[Mapping[Tuple[int, int, int], Mapping[str, str],]] = {
         "Darwin": "a1b33be85faf2578f3101d7806e443e1c0949498",
         "Windows": "66882fadbf9e99cc00b8677d8c1e7e8b3cfdf4fe",
     },
+    (16, 0, 0): {
+        "Linux": "6ef2183a178a53e47e4448dbe192b1d8d5290222",
+        "Darwin": "1c125f1d882babd1a930fcd5b4fd80bba3f5321e",
+        "Windows": "d88796ff22d70c7d5ede62636daa220ccd238f06",
+    },
 }
 
 
